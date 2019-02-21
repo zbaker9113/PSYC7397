@@ -1,0 +1,9 @@
+---
+title: "PSYC7397_datamining_example_studies"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
