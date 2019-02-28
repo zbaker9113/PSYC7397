@@ -1,0 +1,82 @@
+---
+title: "PSYC7397 HW4"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+Instructions for the HW: 
+
+  + This HW is due on Mar 1 (Friday)
+  + Do HW in .Rmd file, Render .Rmd to PDF format, and upload to **Github**
+
+Your Name : Wooseok Kwon
+
+
+## Problem 1
+
+Follow the instructions to submit problem 2 (a ggplot2 example) and problem 3 (reference, abstract, and keyword) to Github. 
+
+- Go to https://github.com and Create your GitHub account. 
+- Send me your GitHub ID to me by email so that I can add you in PSYC7397 repository. 
+- Watch the following two video tutorial on GitHub
+    - RStudio and Git - an Overview (Part 1) to learn about github (https://www.youtube.com/watch?v=KjLycV1IWqc) 
+    - RStudio and Git - an Example (Part 2) to learn about using github within Rstudio (https://www.youtube.com/watch?v=qcjpHFwCugE) 
+- Submit (or Commit in GitHub terminology) your ggplot2 code (problem 2) with your name to PSYC7397_ggplot2_library.Rmd in PSYC7397 repository. 
+- Submit (or Commit in GitHub terminology) your reference, abstract, and keyword  (problem 3) with your name to PSYC7397_ggplot2_library.Rmd in PSYC7397 repository. 
+
+
+## Problem 2
+
+Think about a plot that could be useful in your research area, and google how to create the plot using `ggplot2`. Your code for ploting the plot **should be a working example** including data (probably you need built-in R data: `data()` will give you a list of built-in data). I want you to **explain the details of the code to your friends** in our next class. So be prepared to explain how your code works. **Any plot in our lecture slides are not allowed**. Something new and useful. 
+
+```{r}
+library(tidyverse)
+library(plotly)
+summary.df2 <- readRDS('summary.Rdata')
+
+ggplot(summary.df2, aes(time, mean)) +
+  geom_line(aes(group = topics, color = topics)) +
+  theme_minimal()
+
+all.Topics <- plot_ly(summary.df2, x = ~time, y = ~mean) %>% 
+  add_lines(alpha = 0.2, name = "All factors") %>% 
+  layout(legend = list(x = 0.5, y = 0.9))
+
+## alternative
+all.Topics %>% 
+  add_fun(function(plot) {
+    plot %>% filter(topics == "mTopic5") %>% 
+      add_lines(name = "Good quality but a little pricey")
+  }) %>% 
+  add_fun(function(plot) {
+    plot %>% filter(topics == "mTopic29") %>% 
+      add_lines(name = "Good quality and a reasonable price")
+  }) %>% 
+  add_fun(function(plot) {
+    plot %>% filter(topics == "mTopic33") %>% 
+      add_lines(name = "Overcharged")
+  }) %>% 
+  add_fun(function(plot) {
+    plot %>% filter(topics == "mTopic46") %>% 
+      add_lines(name = "Love with meal")
+  }) %>% 
+  add_fun(function(plot) {
+    plot %>% filter(topics == "mTopic9") %>% 
+      add_lines(name = "Poor service of employees")
+  })
+```
+
+
+## Problem 3
+
+**Reference**   
+Xu, X. (2018). Does traveler satisfaction differ in various travel group compositions?: Evidence from online reviews. *International Journal of Contemporary Hospitality Management, 30(3),* 1663–1685. https://doi.org/10.1108/IJCHM-03-2017-0171
+
+**Abstract**   
+Purpose - this study aims to investigate the online customer review behavior and determinants of overall satisfaction with hotels of travelers in various travel group compositions. Design/methodology/approach - the author collected data from online reviews of travelers in various travel group compositions from 600 hotels in 100 of the largest cities in the usa from booking.com and used latent semantic analysis (lsa) to identify the positive and negative factors from online reviews of travelers in various travel group compositions. Then, text regression was used to determine the influential factors of overall satisfaction of travelers in various travel group compositions. Findings - it was found in this study that not all the positive and negative textual factors mined from travelers' online reviews significantly influenced their overall satisfaction. In addition, the determinants of traveler satisfaction were different when travelers were in different travel group compositions. Research limitations/implications - the author found similar online review behavior, but different basic, excitement and performance factors of travelers in different travel group compositions. Practical implications - this study helps hoteliers understand customers' perception of the specific attributes of their products and services, which provides a guideline for businesses to design the priority rule to improve these corresponding attributes and use market segmentation strategy when dealing with customers in different travel group compositions. Originality/value - the author examined and compared the online review behavior and determinants of satisfaction using the factors mined from online reviews between travelers in various travel group compositions. This study combined customer ratings with textual reviews and predicted customer ratings from the factors extracted from textual reviews using lsa and text regression.
+
+
+
+
+
