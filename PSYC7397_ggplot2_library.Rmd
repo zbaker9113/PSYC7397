@@ -85,3 +85,22 @@ ggplot(dat, aes(x = year,
   ggtitle("PISA results across years")
 ```
 
+
+## Blaine Lewis
+```{r}
+library(tidyverse)
+library(ggExtra)
+
+filtered <- txhousing %>%
+  filter(city == "Houston")
+
+scatter <- ggplot(filtered, aes(x = median, y = sales, size = listings)) +
+  geom_point() +
+  theme(legend.position = "none") +
+  labs(x = "Median Home Price in Houston", y = "Number of Sales", 
+       caption = "Size of points represents the number of listings within a single month") +
+  geom_smooth(method = "lm", se = FALSE)
+
+ggMarginal(scatter, type = "density")
+scatter #I am unsure how to suppress the basic scatterplot
+```
