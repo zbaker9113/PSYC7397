@@ -1,0 +1,120 @@
+---
+title: "PSYC7397 HW4"
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+Instructions for the HW: 
+
+  + This HW is due on Mar 1 (Friday)
+  + Do HW in .Rmd file, Render .Rmd to PDF format, and upload to **Github**
+
+Your Name : Suppanut Sriutaisuk
+
+
+## Problem 1
+
+Follow the instructions to submit problem 2 (a ggplot2 example) and problem 3 (reference, abstract, and keyword) to Github. 
+
+- Go to https://github.com and Create your GitHub account. 
+- Send me your GitHub ID to me by email so that I can add you in PSYC7397 repository. 
+- Watch the following two video tutorial on GitHub
+    - RStudio and Git - an Overview (Part 1) to learn about github (https://www.youtube.com/watch?v=KjLycV1IWqc) 
+    - RStudio and Git - an Example (Part 2) to learn about using github within Rstudio (https://www.youtube.com/watch?v=qcjpHFwCugE) 
+- Create a project linked to our PSYC7397 GitHub repository (URL: https://github.com/sunboklee/PSYC7397) in a RStudio (Video will tell you how to do that)
+- Submit (or Commit in GitHub terminology) your ggplot2 code (problem 2) with your name to PSYC7397_ggplot2_library.Rmd in PSYC7397 repository. 
+- Submit (or Commit in GitHub terminology) your reference, abstract, and keyword  (problem 3) with your name to PSYC7397_ggplot2_library.Rmd in PSYC7397 repository. 
+
+
+## Problem 2
+
+Think about a plot that could be useful in your research area, and google how to create the plot using `ggplot2`. Your code for ploting the plot **should be a working example** including data (probably you need built-in R data: `data()` will give you a list of built-in data). I want you to **explain the details of the code to your friends** in our next class. So be prepared to explain how your code works. **Any plot in our lecture slides are not allowed**. Something new and useful. 
+```{r}
+# write your ggplot2 code here
+# Source
+# https://en.wikipedia.org/wiki/Programme_for_International_Student_Assessment     
+library(ggplot2)
+dat <- read.table(text = 'Country,year,score,subject
+International Average (OECD),2015,490,Math
+South Korea,2015,524,Math
+Thailand,2015,415,Math
+United States,2015,470,Math
+International Average (OECD),2012,494,Math
+South Korea,2012,554,Math
+Thailand,2012,427,Math
+United States,2012,481,Math
+International Average (OECD),2009,495,Math
+South Korea,2009,546,Math
+Thailand,2009,419,Math
+United States,2009,487,Math
+International Average (OECD),2006,494,Math
+South Korea,2006,547,Math
+Thailand,2006,417,Math
+United States,2006,474,Math
+International Average (OECD),2003,499,Math
+South Korea,2003,542,Math
+Thailand,2003,417,Math
+United States,2003,483,Math
+International Average (OECD),2015,493,Reading
+South Korea,2015,517,Reading
+Thailand,2015,409,Reading
+United States,2015,497,Reading
+International Average (OECD),2012,496,Reading
+South Korea,2012,536,Reading
+Thailand,2012,441,Reading
+United States,2012,498,Reading
+International Average (OECD),2009,493,Reading
+South Korea,2009,539,Reading
+Thailand,2009,421,Reading
+United States,2009,500,Reading
+International Average (OECD),2006,489,Reading
+South Korea,2006,556,Reading
+Thailand,2006,417,Reading
+United States,2006,NA,Reading
+International Average (OECD),2003,494,Reading
+South Korea,2003,534,Reading
+Thailand,2003,420,Reading
+United States,2003,495,Reading
+International Average (OECD),2000,493,Reading
+South Korea,2000,525,Reading
+Thailand,2000,431,Reading
+United States,2000,504,Reading
+International Average (OECD),2015,493,Science
+South Korea,2015,516,Science
+Thailand,2015,421,Science
+United States,2015,496,Science
+International Average (OECD),2012,501,Science
+South Korea,2012,538,Science
+Thailand,2012,444,Science
+United States,2012,497,Science
+International Average (OECD),2009,501,Science
+South Korea,2009,538,Science
+Thailand,2009,425,Science
+United States,2009,502,Science
+International Average (OECD),2006,498,Science
+South Korea,2006,522,Science
+Thailand,2006,421,Science
+United States,2006,489,Science', sep = ",", header = TRUE)
+ggplot(dat, aes(x = year, 
+                y = score, 
+                group = Country, 
+                color = Country)) + 
+  geom_point() +
+  geom_line() +
+  facet_wrap(~subject, nrow = 1) + 
+  theme_bw() + theme(legend.position="bottom") +
+  ggtitle("PISA results across years")
+```
+
+## Problem 3
+
+Find a paper in your research field that used **data mining**. Provide **APA reference** and **abstract** below. I will collect them and will provide a single document that contains the list of references and abstracts, so that we can have a better sense of what kind of data mining research are there. Also be prepared to briefly explain the research you find. 
+
+- **Title**: Regularized Structural Equation Modeling
+- **Abstract**: A new method is proposed that extends the use of regularization in both lasso and ridge regression to structural equation models. The method is termed regularized structural equation modeling (RegSEM). RegSEM penalizes specific parameters in structural equation models, with the goal of creating easier to understand and simpler models. Although regularization has gained wide adoption in regression, very little has transferred to models with latent variables. By adding penalties to specific parameters in a structural equation model, researchers have a high level of flexibility in reducing model complexity, overcoming poor fitting models, and the creation of models that are more likely to generalize to new samples. The proposed method was evaluated through a simulation study, two illustrative examples involving a measurement model, and one empirical example involving the structural part of the model to demonstrate RegSEM’s utility.
+- **Keywords**: factor analysis, lasso, penalization, equation modeling
+
+
+
+
