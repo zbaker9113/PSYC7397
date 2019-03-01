@@ -7,3 +7,10 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## Blaine Lewis
+
+**APA Citation**
+Speer, A. B. (2018). Quantifying with words: An investigation of the validity of narrative‐derived performance scores. *Personnel Psychology, 71*(3), 299-333.
+
+**Abstract**
+Performance appraisal research has focused almost entirely on traditional numerical ratings despite narrative text comments regularly being collected within appraisals. This study investigated the theory and utility of leveraging narrative comments to better understand employee performance. Narrative sentiment scores were derived using text mining on a large sample of narrative comments. These scores were then applied to an independent set of 2 years of performance data. It was assumed that narrative comments would reflect true performance variance that overlapswith traditional ratings, but also that they would capture incremental variance due to increases in total information and a reduction in rater-motivated biases in contexts in which narrative data were not explicitly linked to administrative outcomes. The derived narrative scores were reliable across years, converged with traditional numerical ratings and explained incremental variance in future performance outcomes (performance ratings, involuntary turnover, promotions, and pay increases). Collectively, this study highlights how narratives can enhance performance measurement and demonstrateshowthese data can be economically scored in applied settings.
