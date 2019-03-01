@@ -7,4 +7,81 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## Suppanut Sriutaisuk
+```{r}
+# Load package
+library(ggplot2)
+# Load data
+dat <- read.table(text = 'Country,year,score,subject
+International Average (OECD),2015,490,Math
+South Korea,2015,524,Math
+Thailand,2015,415,Math
+United States,2015,470,Math
+International Average (OECD),2012,494,Math
+South Korea,2012,554,Math
+Thailand,2012,427,Math
+United States,2012,481,Math
+International Average (OECD),2009,495,Math
+South Korea,2009,546,Math
+Thailand,2009,419,Math
+United States,2009,487,Math
+International Average (OECD),2006,494,Math
+South Korea,2006,547,Math
+Thailand,2006,417,Math
+United States,2006,474,Math
+International Average (OECD),2003,499,Math
+South Korea,2003,542,Math
+Thailand,2003,417,Math
+United States,2003,483,Math
+International Average (OECD),2015,493,Reading
+South Korea,2015,517,Reading
+Thailand,2015,409,Reading
+United States,2015,497,Reading
+International Average (OECD),2012,496,Reading
+South Korea,2012,536,Reading
+Thailand,2012,441,Reading
+United States,2012,498,Reading
+International Average (OECD),2009,493,Reading
+South Korea,2009,539,Reading
+Thailand,2009,421,Reading
+United States,2009,500,Reading
+International Average (OECD),2006,489,Reading
+South Korea,2006,556,Reading
+Thailand,2006,417,Reading
+United States,2006,NA,Reading
+International Average (OECD),2003,494,Reading
+South Korea,2003,534,Reading
+Thailand,2003,420,Reading
+United States,2003,495,Reading
+International Average (OECD),2000,493,Reading
+South Korea,2000,525,Reading
+Thailand,2000,431,Reading
+United States,2000,504,Reading
+International Average (OECD),2015,493,Science
+South Korea,2015,516,Science
+Thailand,2015,421,Science
+United States,2015,496,Science
+International Average (OECD),2012,501,Science
+South Korea,2012,538,Science
+Thailand,2012,444,Science
+United States,2012,497,Science
+International Average (OECD),2009,501,Science
+South Korea,2009,538,Science
+Thailand,2009,425,Science
+United States,2009,502,Science
+International Average (OECD),2006,498,Science
+South Korea,2006,522,Science
+Thailand,2006,421,Science
+United States,2006,489,Science', sep = ",", header = TRUE)
+# ggplot2 code
+ggplot(dat, aes(x = year, 
+                y = score, 
+                group = Country, 
+                color = Country)) + 
+  geom_point() +
+  geom_line() +
+  facet_wrap(~subject, nrow = 1) + 
+  theme_bw() + theme(legend.position="bottom") +
+  ggtitle("PISA results across years")
+```
 
